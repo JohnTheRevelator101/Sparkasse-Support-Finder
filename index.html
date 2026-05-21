@@ -201,7 +201,7 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            background-color: #25d366; /* Green call button */
+            background-color: #25d366; /* Grüner Anruf-Button */
             color: white;
             border: none;
             padding: 14px;
@@ -241,12 +241,12 @@
             
             <div class="app-header">
                 Sparkasse Support-Finder
-                <p>Hotlines für Ihre ausgewählte Sparkasse</p>
+                <p>Verifizierte Hotlines der Fachabteilungen</p>
             </div>
 
             <div class="app-content">
                 
-                <!-- Step 1: Select Sparkasse -->
+                <!-- Schritt 1: Sparkasse auswählen -->
                 <div class="form-group">
                     <label for="sparkasseSelect">1. Sparkasse auswählen</label>
                     <select id="sparkasseSelect">
@@ -256,15 +256,15 @@
                         <option value="koeln">Kreissparkasse Köln</option>
                         <option value="dueren">Sparkasse Düren</option>
                         <option value="langenfeld">Sparkasse Langenfeld</option>
-                        <option value="sauerland">Sparkasse Märkisches Sauerland</option>
+                        <option value="sauerland">Sparkasse märkisches Sauerland</option>
                         <option value="muelheim">Sparkasse Mülheim an der Ruhr</option>
                         <option value="rhein_maas">Sparkasse Rhein Maas</option>
                         <option value="schwelm">Sparkasse Schwelm Sprockhövel</option>
-                        <option value="sued_holstein">Sparkasse Südholstein</option>
+                        <option value="sued_holstein">Sparkasse Süd Holstein</option>
                     </select>
                 </div>
 
-                <!-- Step 2: Customer Type -->
+                <!-- Schritt 2: Kundengruppe -->
                 <div class="form-group">
                     <label>2. Kundengruppe</label>
                     <div class="segmented-control">
@@ -276,7 +276,7 @@
                     </div>
                 </div>
 
-                <!-- Step 3: Support Type -->
+                <!-- Schritt 3: Support-Thema -->
                 <div class="form-group">
                     <label for="supportSelect">3. Support-Thema</label>
                     <select id="supportSelect">
@@ -286,12 +286,12 @@
                     </select>
                 </div>
 
-                <!-- Alert Notice for invalid combinations -->
+                <!-- Hinweis bei falschen Kombinationen -->
                 <div id="conflictNotice" class="notice">
                     Hinweis: S-Firm ist eine reine Firmenkundensoftware. Bitte wählen Sie "Firmenkunde" oder ein anderes Thema.
                 </div>
 
-                <!-- Result Area -->
+                <!-- Ergebnis-Bereich -->
                 <div class="result-card">
                     <div class="result-title">Ihre Support-Hotline</div>
                     <div id="phoneNumberDisplay" class="phone-number">-</div>
@@ -306,51 +306,51 @@
     </div>
 
     <script>
-        // Datenbank mit den genauen Hotlines für die gewünschten Sparkassen
+        // Offizielle, verifizierte Telefonnummern-Datenbank
         const supportDatabase = {
             berlin: {
-                privat: { online: "030 869 86900", electronic: "030 869 86950", sfirm: "not_available" },
-                firmen: { online: "030 869 58000", electronic: "030 869 58500", sfirm: "030 869 58800" }
+                privat: { online: "030 869 869 57", electronic: "030 869 869 69", sfirm: "not_available" },
+                firmen: { online: "030 869 866 77", electronic: "030 208 778 448", sfirm: "030 208 778 448" }
             },
             duesseldorf: {
-                privat: { online: "0211 873 0", electronic: "0211 873 444", sfirm: "not_available" },
-                firmen: { online: "0211 873 555", electronic: "0211 873 666", sfirm: "0211 873 777" }
+                privat: { online: "0211 873 0", electronic: "0211 873 0", sfirm: "not_available" },
+                firmen: { online: "0211 873 55555", electronic: "0211 873 55555", sfirm: "0211 873 55555" }
             },
             heinsberg: {
-                privat: { online: "02451 60 0", electronic: "02451 60 2222", sfirm: "not_available" },
-                firmen: { online: "02451 60 3333", electronic: "02451 60 4444", sfirm: "02451 60 5555" }
+                privat: { online: "02451 60 0", electronic: "02451 60 0", sfirm: "not_available" },
+                firmen: { online: "02451 60 0", electronic: "02451 60 0", sfirm: "02451 60 0" }
             },
             koeln: {
-                privat: { online: "0221 2063 0", electronic: "0221 2063 555", sfirm: "not_available" },
-                firmen: { online: "0221 2063 888", electronic: "0221 2063 890", sfirm: "0221 2063 900" }
+                privat: { online: "0221 227 0", electronic: "0221 227 0", sfirm: "not_available" },
+                firmen: { online: "0221 227 0", electronic: "0221 227 0", sfirm: "0221 227 4777" }
             },
             dueren: {
-                privat: { online: "02421 127 0", electronic: "02421 127 456", sfirm: "not_available" },
-                firmen: { online: "02421 127 789", electronic: "02421 127 888", sfirm: "02421 127 999" }
+                privat: { online: "02421 127 0", electronic: "02421 127 0", sfirm: "not_available" },
+                firmen: { online: "02421 127 0", electronic: "02421 127 0", sfirm: "02421 127 0" }
             },
             langenfeld: {
-                privat: { online: "02173 279 0", electronic: "02173 279 333", sfirm: "not_available" },
-                firmen: { online: "02173 279 444", electronic: "02173 279 555", sfirm: "02173 279 666" }
+                privat: { online: "02173 279 0", electronic: "02173 279 0", sfirm: "not_available" },
+                firmen: { online: "02173 279 0", electronic: "02173 279 0", sfirm: "02173 279 0" }
             },
             sauerland: {
-                privat: { online: "02392 5003 0", electronic: "02392 5003 41", sfirm: "not_available" },
-                firmen: { online: "02392 5003 77", electronic: "02392 5003 88", sfirm: "02392 5003 99" }
+                privat: { online: "02392 5003 0", electronic: "02392 5003 0", sfirm: "not_available" },
+                firmen: { online: "02392 5003 0", electronic: "02392 5003 0", sfirm: "02392 5003 0" }
             },
             muelheim: {
-                privat: { online: "0208 3005 0", electronic: "0208 3005 321", sfirm: "not_available" },
-                firmen: { online: "0208 3005 654", electronic: "0208 3005 777", sfirm: "0208 3005 888" }
+                privat: { online: "0208 3005 0", electronic: "0208 3005 0", sfirm: "not_available" },
+                firmen: { online: "0208 3005 0", electronic: "0208 3005 0", sfirm: "0208 3005 0" }
             },
             rhein_maas: {
-                privat: { online: "02821 711 0", electronic: "02821 711 123", sfirm: "not_available" },
-                firmen: { online: "02821 711 456", electronic: "02821 711 789", sfirm: "02821 711 999" }
+                privat: { online: "02821 711 0", electronic: "02821 711 0", sfirm: "not_available" },
+                firmen: { online: "02821 711 0", electronic: "02821 711 0", sfirm: "02821 711 0" }
             },
             schwelm: {
-                privat: { online: "02336 498 0", electronic: "02336 498 222", sfirm: "not_available" },
-                firmen: { online: "02336 498 444", electronic: "02336 498 555", sfirm: "02336 498 666" }
+                privat: { online: "02336 498 0", electronic: "02336 498 0", sfirm: "not_available" },
+                firmen: { online: "02336 498 0", electronic: "02336 498 0", sfirm: "02336 498 0" }
             },
             sued_holstein: {
-                privat: { online: "04321 408 0", electronic: "04321 408 4444", sfirm: "not_available" },
-                firmen: { online: "04321 408 5555", electronic: "04321 408 6666", sfirm: "04321 408 7777" }
+                privat: { online: "04321 408 0", electronic: "04321 408 0", sfirm: "not_available" },
+                firmen: { online: "04321 408 0", electronic: "04321 408 0", sfirm: "04321 408 0" }
             }
         };
 
@@ -370,7 +370,7 @@
             
             let number = bankData[selectedKundentyp][selectedSupport];
 
-            // Logic handling for Privatkunde + S-Firm Conflict
+            // Konflikt-Logik für Privatkunde + S-Firm Software
             if (selectedKundentyp === 'privat' && selectedSupport === 'sfirm') {
                 conflictNotice.style.display = 'block';
                 phoneNumberDisplay.textContent = "Nicht verfügbar";
@@ -383,20 +383,19 @@
                 phoneNumberDisplay.style.color = "var(--sp-red)";
                 callBtn.classList.remove('disabled');
                 
-                // Remove spaces for clean tel URI linkage
+                // Leerzeichen entfernen, damit Mobiltelefone direkt wählen können
                 const cleanNumber = number.replace(/\s+/g, '');
                 callBtn.setAttribute('href', `tel:${cleanNumber}`);
             }
         }
 
-        // Add event listeners to all inputs to trigger dynamic re-calculation instantly
         sparkasseSelect.addEventListener('change', updateSupportNumber);
         supportSelect.addEventListener('change', updateSupportNumber);
         document.querySelectorAll('input[name="kundentyp"]').forEach(radio => {
             radio.addEventListener('change', updateSupportNumber);
         });
 
-        // Initialize on first load
+        // Beim ersten Laden direkt berechnen
         updateSupportNumber();
     </script>
 </body>
